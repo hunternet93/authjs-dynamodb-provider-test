@@ -26,4 +26,21 @@ AUTH_SENDGRID_FROM="" # From address for SendGrid
 
 ### Usage
 
-Start with `npm run dev` and open `http://localhost:3000`. A login form will appear.
+1. Set up the demo app as described in the README.md
+2. Start with `npm run dev` and open `http://localhost:3000`
+3. A login form will appear. Enter a valid email address in the input and click the button.
+4. SendGrid should send a login email to the address. Once received, click the link.
+5. The process will appear to work, but you will not be logged in (`await auth()` returns `null`).
+6. Try steps 3-5 again with the same email.
+7. You'll get an error page, with this exception in console:
+
+```
+[auth][error] CallbackRouteError: Read more at https://errors.authjs.dev#callbackrouteerror
+[auth][cause]: Error: Missing or invalid provider account
+    at handleLoginOrRegister (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/callback/handle-login.js:24:15)
+    at Module.callback (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/callback/index.js:181:142)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:43:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    [remaining lines omitted]
+```
