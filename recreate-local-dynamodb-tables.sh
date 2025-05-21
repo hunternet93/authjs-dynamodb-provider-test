@@ -26,7 +26,7 @@ aws \
                 \"KeySchema\": [{\"AttributeName\":\"GSI1PK\",\"KeyType\":\"HASH\"},
                                 {\"AttributeName\":\"GSI1SK\",\"KeyType\":\"RANGE\"}],
                 \"Projection\":{
-                    \"ProjectionType\":\"KEYS_ONLY\"
+                    \"ProjectionType\":\"ALL\"
                 },
                 \"ProvisionedThroughput\": {
                     \"ReadCapacityUnits\": 10,
